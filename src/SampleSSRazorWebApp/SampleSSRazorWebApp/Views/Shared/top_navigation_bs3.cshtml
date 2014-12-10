@@ -1,5 +1,6 @@
-﻿@{
-    var sess = GetSession<APSession>();
+﻿@using SampleSSRazorWebApp.ServiceInterface
+@{
+    var sess = SessionAs<APSession>();
 
     bool activeSession = (null != sess && null != sess.default_asp);
 }

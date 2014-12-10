@@ -1,7 +1,7 @@
-@using AP.Models;
+@using SampleSSRazorWebApp.ServiceInterface
 
 @{
-    APSession sess = GetSession<APSession>();
+    APSession sess = SessionAs<APSession>();
 
     Campaign campaign = null;
     if (null != sess)
