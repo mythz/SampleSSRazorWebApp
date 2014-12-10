@@ -1,0 +1,6 @@
+\\vmware-host\shared folders\documents\visual studio 2013\Projects\SampleSSRazorWebApp\SampleSSRazorWebApp\SampleSSRazorWebApp.ServiceModel\bin\Debug\SampleSSRazorWebApp.ServiceModel.dll
+\\vmware-host\shared folders\documents\visual studio 2013\Projects\SampleSSRazorWebApp\SampleSSRazorWebApp\SampleSSRazorWebApp.ServiceModel\bin\Debug\SampleSSRazorWebApp.ServiceModel.pdb
+\\vmware-host\shared folders\documents\visual studio 2013\Projects\SampleSSRazorWebApp\SampleSSRazorWebApp\SampleSSRazorWebApp.ServiceModel\bin\Debug\ServiceStack.Interfaces.dll
+\\vmware-host\shared folders\documents\visual studio 2013\Projects\SampleSSRazorWebApp\SampleSSRazorWebApp\SampleSSRazorWebApp.ServiceModel\obj\Debug\SampleSSRazorWebApp.ServiceModel.csprojResolveAssemblyReference.cache
+\\vmware-host\shared folders\documents\visual studio 2013\Projects\SampleSSRazorWebApp\SampleSSRazorWebApp\SampleSSRazorWebApp.ServiceModel\obj\Debug\SampleSSRazorWebApp.ServiceModel.dll
+\\vmware-host\shared folders\documents\visual studio 2013\Projects\SampleSSRazorWebApp\SampleSSRazorWebApp\SampleSSRazorWebApp.ServiceModel\obj\Debug\SampleSSRazorWebApp.ServiceModel.pdb

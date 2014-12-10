@@ -1,0 +1,92 @@
+@using AP.Models;
+
+@{
+    APSession sess = GetSession<APSession>();
+
+    Campaign campaign = null;
+    if (null != sess)
+    {
+        campaign = sess.current_campaign;
+    }
+}
+
+
+<div class="sidebar-background">
+  <div class="primary-sidebar-background"></div>
+</div>
+
+<div class="primary-sidebar">
+  <!-- Main nav -->
+  <ul class="nav navbar-collapse collapse navbar-collapse-primary">
+   
+
+@if ( sess.showSideNav() )
+{
+ <li class="dark-nav active">
+    <span class="glow"></span>
+    <a class="accordion-toggle  " data-toggle="collapse" href="#campaign_sub_nav">
+        <i class="icon-envelope icon-2x"></i>
+        <span>
+            Campaigns
+            <i class="icon-caret-down"></i>
+        </span>
+    </a>
+
+    <ul id="campaign_sub_nav" class="collapse in">
+       <li class="">
+            <a href="/optimize/campaigns">
+                <i class="icon-th-large"></i> Summary
+            </a>
+        </li>
+       <li class="">
+            <a href="/optimize/campaigns/new">
+                <i class="icon-link"></i>  Create
+            </a>
+        </li>
+         <li class="">
+            <a href="/optimize/Connections">
+                <i class="icon-cloud"></i> Connections
+            </a>
+        </li>
+       @if ( null != campaign )
+       {
+         @Html.Partial( "campaign_nav", @campaign )
+       }
+    </ul>
+
+      
+
+ </li>
+    
+ 
+}
+
+  </ul>
+
+  <div class="hidden-sm hidden-xs">
+
+    <hr class="divider" style="margin-top: 60px">
+
+     <div class="sparkline-box side">
+    @if ( false )
+    { 
+      <div class="sparkline-row">
+        <h4 class="gray"><span>Subscribers</span> 242</h4>
+      </div>
+
+      <hr class="divider">
+      <div class="sparkline-row">
+        <h4 class="dark-green"><span>Messages Sent</span> 4,200,240</h4>
+      </div>
+
+      <hr class="divider">
+      <div class="sparkline-row">
+        <h4 class="blue"><span>Campaigns</span> 24</h4>
+      </div>
+
+      <hr class="divider">
+      }
+	  <img id="ap_logo" src="/assets/img/ap_logo_white.png" alt="logo">
+    </div>
+  </div>
+</div>

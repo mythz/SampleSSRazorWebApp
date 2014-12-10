@@ -1,0 +1,36 @@
+﻿@using ServiceStack.Html;
+@{
+    
+    var list_select_attribs = new
+    {
+        id = "ServiceProviderID",
+        Name = "ServiceProviderID",
+        @class = "uniform"
+
+    };
+}
+<div class="row">
+    <div class="area-top clearfix">
+        <div class="pull-left header">
+            <h3 class="title">
+                @ViewBag.Title
+            </h3>
+        </div>     
+        @if (Request.Items.ContainsKey("AllServices"))
+        {
+            <form id="frmNewServcieProvider" action="connections/new" method="Get">
+            <div class="list-inline pull-right">
+                <div class="pull-left">
+                    @Html.DropDownList("ServiceProviderID", (SelectList)Request.Items["AllServices"],
+                                                         "Choose Connection Provider",
+                                                         list_select_attribs)
+                </div>
+                <div class="pull-right hpadded">
+                    <button type="submit" class="btn btn-default">Add New Provider</button>
+                </div>
+            </div>
+            </form>
+        }
+       
+    </div>
+</div>

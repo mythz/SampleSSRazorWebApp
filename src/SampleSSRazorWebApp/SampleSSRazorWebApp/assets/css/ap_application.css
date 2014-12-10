@@ -1,0 +1,28 @@
+﻿
+
+
+
+.primary-sidebar #ap_logo
+{
+    padding-left: 22px;
+    width: 80%;
+}
+
+.raise2
+{
+    margin-bottom: 2px;
+}
+
+a.text-danger, .campaign-row-5 /* error */
+{
+    color: #B94A48
+}
+
+.alert-danger ul
+{
+    margin-left: 15px
+}
+.alert-danger p
+{
+    margin:0 0 10px
+}

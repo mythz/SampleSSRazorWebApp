@@ -1,0 +1,82 @@
+﻿@inherits ViewPage<AP.Models.ApplicationServiceProviderComposite>
+@using AP.Models;
+@if (Model!=null && Model.ApplicationServiceProviderID > 0)
+{
+
+    if (!Model.IsDefault)
+    {
+       <li class="">
+           <a href='#' onclick=javascript:confirmSetDefault(@Model.ApplicationServiceProviderID,'true')>
+            <i class='icon-check' title='Click to set default'> </i>Set As Default
+            </a>
+       </li>
+    }
+    
+    @* 
+    if (!Model.IsServiceLocked())
+    {*@
+        <li class="">
+            <a href="#" onclick='javascript:confirmImportHistorical(@Model.ApplicationServiceProviderID)'>
+                <i class="icon-cloud-download"></i> Import Historical Data
+            </a>
+        </li>  
+     <li class="">
+            <a href="/optimize/connections/@Model.ApplicationServiceProviderID/edit">
+                <i class="icon-pencil"></i> Edit
+            </a>
+        </li>
+    
+      <li class="">
+            <a href="#" onclick='javascript:confirmDelete(@Model.ApplicationServiceProviderID)'>
+                <i class="icon-trash"></i> Delete
+            </a>
+        </li>
+      @* }
+      
+        <li class="">
+            <a href="#">
+                <i class="icon-bar-chart"></i> Show Activity
+            </a>
+        </li> 
+    *@
+    
+}
+
+
+
+<script language="javascript">
+
+    function confirmImportHistorical(serviceProviderid) {
+        if (confirm("Are you sure, you wish to import historical data?")) {
+        $('#ConnectionId').val(serviceProviderid); 
+            document.getElementById("frmImportHistorical").submit()
+        }
+        else {
+            return false;
+        }
+    }
+    
+
+    function confirmDelete(serviceProviderid) {
+        if (confirm("Are you sure you want to delete this connection.")) {
+            $('#ConnectionId').val(serviceProviderid);
+            $('#frmImportHistorical').attr('action', "connections/delete").submit();
+        }
+        else {
+            return false;
+        }
+    }
+
+
+    function confirmSetDefault(serviceProviderid) {
+        if (confirm("Are you sure you want to set this connection as default?")) {
+            $('#ConnectionId').val(serviceProviderid);
+            $('#frmImportHistorical').attr('action', "connections/setDefault").submit();
+        }
+        else {
+            return false;
+        }
+    }
+</script>
+
+        

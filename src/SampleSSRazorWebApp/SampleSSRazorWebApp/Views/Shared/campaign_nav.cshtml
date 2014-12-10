@@ -1,0 +1,88 @@
+﻿@inherits ViewPage<AP.Models.Campaign>
+
+@if ( Model.CampaignID > 0)
+{
+    if (Model.Importing())
+    {
+        <li>
+            <a href="#" onclick="return false;">
+                <i class="icon-cloud-download"></i> Importing 
+            </a>
+        </li> 
+    }
+    
+        <li class="">
+            <a href="/optimize/campaigns/@Model.CampaignID">
+                <i class="icon-bar-chart"></i> Message Spread
+            </a>
+        </li>
+    
+        if ( Model.CanEdit() )
+        {
+        <li class="">
+            <a href="/optimize/campaigns/@Model.CampaignID/edit">
+                <i class="icon-pencil"></i> Edit
+            </a>
+        </li>  
+        }
+        
+        if(!Model.Importing())
+        {
+        <li class="">
+            <a href="/optimize/campaigns/@Model.CampaignID/schedule">
+                <i class="icon-time"></i> View schedule
+            </a>
+        </li> 
+        }
+
+        if (Model.HasErred())
+        {
+        <li class="text-danger">
+            <a href="/optimize/campaigns/@Model.CampaignID" class="text-danger">
+                <i class="icon-question-sign"></i> Error Help
+            </a>
+        </li>
+        }
+
+        <!-- this only allows certain states.  We may have campaigns in bad states that need to be deleted -->
+        if (Model.CanDelete())
+        {
+        <li class="text-danger">
+            <a href="/optimize/campaigns/delete/@Model.CampaignID" class="text-danger" onclick='return confirmDeleteCampaign(@Model.CampaignID);'>
+                <i class=" icon-trash"></i> Delete
+            </a>
+        </li>
+        }
+
+        <!-- you won't see this is most views because deleted campaigns are filtered -->
+        if (Model.IsDeleted())
+        {
+            <li class="text-danger">
+                <a href="/optimize/campaigns/undelete/@Model.CampaignID" class="text-danger" onclick='return confirmUndeleteCampaign(@Model.CampaignID);'>
+                    <i class=" icon-undo"></i> Undelete
+                </a>
+            </li>
+        }
+}
+
+<script language="javascript">
+
+    function confirmDeleteCampaign( campaignId ) {
+        if (confirm("Are you sure you want to delete campaign " + campaignId + "?")) {
+            return true;
+        }
+        else {
+            return false;
+        }
+    }
+
+    function confirmUndeleteCampaign( campaignId ) {
+        if (confirm("Are you sure you want to undelete campaign " + campaignId + "?")) {
+            return true;
+        }
+        else {
+            return false;
+        }
+    }
+</script>
+
